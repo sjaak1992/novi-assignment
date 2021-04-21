@@ -2,6 +2,8 @@ import React, {useCallback, useEffect, useState} from "react";
 import './App.css';
 import axios from "axios";
 import BookCard from "./Components/BookCard";
+import MyReadingList from "./Components/MyReadingList";
+import Search from "./Components/Search";
 
 
 function App() {
@@ -45,26 +47,33 @@ function App() {
 
     return (
         <>
-            <h1>Books of my favourite author: </h1>
-            <h2>{author && author}</h2>
-
             <div className="App">
-                <input value={query} onChange={e => setQuery(e.target.value)} type="search"/>
-                <button onClick={fetchData}> Search</button>
+                <h1>Books of my favourite author: </h1>
+                <h2>{author && author}</h2>
             </div>
 
-            <div>
+            <div className="search">
+
+                {/*<input value={query} onChange={e => setQuery(e.target.value)} type="search"/>*/}
+                {/*<button onClick={fetchData}> Search</button>*/}
+                <Search data={fetchData} value={query} change={e => setQuery(e.target.value)} />
+
+            </div>
+
+
+            <div className="my-reading-list">
                 <ul>
                     {readingList.map((title) => {
-                        // console.log(title)
-                        return <li key={title}>{title}</li>
+                        return (
+                            <MyReadingList item={title} />
+                            // <li key={title}>{title}</li>
+                        )
                     })}
                 </ul>
             </div>
 
+
             <div className="book-card-container">
-
-
                 <p>
                     {books && books.map((book) => {
                     // console.log("HIER ZIT OOK EEN LOGJE", book)
