@@ -1,19 +1,24 @@
 import React from 'react'
 
-function BookCard (props){
-    console.log(props.title)
+function BookCard(props) {
+
     return (
         <>
-        <li>{props.title}
+            <li> {props.title}
+                <button onClick={props.data}>
+                    add to list
+                </button>
 
-        <button onClick={props.data}>
-            add to list
-        </button>
+            </li>
 
-        </li>
+            <p> {props.firstline} </p>
+            <img src={`http://covers.openlibrary.org/b/id/${props.id}-M.jpg`} alt="book-cover"/>
+
 
         </>
-            )
+
+
+    )
 
 }
 
