@@ -37,7 +37,7 @@ function App() {
     return (
         <>
             <div className="App">
-                <h1>Books of my favourite author: </h1>
+                <h2>Books of my favourite author: </h2>
                 <h2>{author && author}</h2>
                 <img src={`http://covers.openlibrary.org/a/olid/${authorProfile}-M.jpg`} alt="author-profile"/>
 

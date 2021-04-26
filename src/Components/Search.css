@@ -1,0 +1,14 @@
+#container {
+    min-height: 100vh;
+    display: flex;
+}
+
+.container-left {
+    width: 50vh;
+    background-color: var(--color-white);
+}
+
+.container-right {
+    width: 50vh;
+    background-color: var(--color-primary);
+}
