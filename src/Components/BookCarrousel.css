@@ -1,0 +1,9 @@
+.book-card-container {
+    display: flex;
+    overflow-x: scroll;
+    margin-left: 2rem;
+    padding: 65px;
+    background-color: var(--color-white);
+
+
+}

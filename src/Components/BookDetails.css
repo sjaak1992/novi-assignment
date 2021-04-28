@@ -1,0 +1,30 @@
+p {
+    font-style: italic;
+}
+
+
+.book-details-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 65px;
+    background-color: var(--color-white);
+    margin-left: 2rem;
+}
+
+.detail-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+
+
+.detail-add {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+;
+}

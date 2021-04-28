@@ -1,7 +1,8 @@
 import React from "react";
 import './Search.css'
-
 import {FcSearch} from 'react-icons/fc'
+
+
 
 function Search(props) {
     return (

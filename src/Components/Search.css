@@ -2,27 +2,25 @@
 .search-image {
     height: 400px;
     width: 500px;
-    border-radius: 8px;
+
 
 }
 
 .container {
-
-    width: calc(100vw - 20vw - 2rem);
+    width: calc(100vw - 20vw - 2rem);   /*100vw maar min de margin left en right*/
     margin-right: 20vw;
     margin-left: 2rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-color: var(--color-primary);
-    border: 1px solid black;
+    padding: 65px;
+
 }
 
 .left {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    border: 5px solid red;
     align-items: flex-start;
     padding-left: 10vw;
     width: 60vw;
@@ -33,12 +31,12 @@
 .right {
     display: flex;
     position:relative;
-    border: 5px solid red;
     height: 400px;
 }
+
 .author-picture {
     position:absolute;
-    top:calc(50% - 90px);
+    top: calc(90% - 90px); /*90% positie, -90 px opzij want image is 180px*/
     left: -90px;
-
+    border: 10px solid var(--color-secondary)
 }

@@ -1,20 +1,34 @@
 import React from 'react'
+import './BookDetails.css'
+import { RiHeartAddLine } from 'react-icons/ri'
+
+
 
 function BookDetails(props) {
 
     return (
         <>
+<div className="book-details-container">
+            <img
+                src={`http://covers.openlibrary.org/b/id/${props.id}-M.jpg`}
+                alt="book-cover"
+                className="detail-image"
 
-            <li> {props.title}
-                <button onClick={props.data}>
-                    add to list
-                </button>
+            />
 
-            </li>
+            <div className="detail-info">
+                <h2>{props.author}</h2>
+                 <p>{props.title}</p>
+                <p className="first-sentence"> {props.firstline} </p>
 
-            <p className="first-sentence"> {props.firstline} </p>
-            <img src={`http://covers.openlibrary.org/b/id/${props.id}-M.jpg`} alt="book-cover"/>
+            </div>
 
+            <div className="detail-add">
+
+                <button onClick={props.data}><RiHeartAddLine/></button>
+                <h2>ADD TO MY READING LIST</h2>
+            </div>
+ </div>
 
         </>
 
@@ -22,5 +36,7 @@ function BookDetails(props) {
     )
 
 }
+
+
 
 export default BookDetails;

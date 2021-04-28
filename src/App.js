@@ -4,10 +4,9 @@ import axios from "axios";
 import BookCard from "./Components/BookCard";
 import BookDetails from "./Components/BookDetails";
 import MyReadingList from "./Components/MyReadingList";
-import BookCaroussel from "./Components/BookCaroussel";
+import BookCarrousel from "./Components/BookCarrousel";
 import Search from "./Components/Search";
 import search_image from "./assets/search_image.jpg";
-
 
 
 function App() {
@@ -47,9 +46,9 @@ function App() {
                 <div className="app-container-left">
                     <h1 className="logo">THE BOOKCLUB</h1>
                 </div>
-                <div className="app-container-right">
+                {/*<div className="app-container-right">*/}
 
-                </div>
+                {/*</div>*/}
 
 
                 <div className="App">
@@ -61,8 +60,6 @@ function App() {
                             authorProfile={authorProfile}
 
                     />
-
-                    <h2>{author && author}</h2>
 
 
                 </div>
@@ -83,7 +80,7 @@ function App() {
                 {/*</div>*/}
 
 
-                <BookCaroussel
+                <BookCarrousel
                     books={books}
                     setBook={setBook}
                 />
@@ -93,7 +90,8 @@ function App() {
                                  title={book.title}
                                  id={book.cover_i}
                                  firstline={book.first_sentence}
-                                 author={book.author_key}
+                                 author={author}
+
                     />
 
                 </div>
