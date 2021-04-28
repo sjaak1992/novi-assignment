@@ -2,9 +2,12 @@ import React, {useCallback, useEffect, useState} from "react";
 import './App.css';
 import axios from "axios";
 import BookCard from "./Components/BookCard";
+import BookDetails from "./Components/BookDetails";
 import MyReadingList from "./Components/MyReadingList";
+import BookCaroussel from "./Components/BookCaroussel";
 import Search from "./Components/Search";
 import search_image from "./assets/search_image.jpg";
+
 
 
 function App() {
@@ -14,6 +17,7 @@ function App() {
     const [books, setBooks] = useState([]);
     const [readingList, setReadingList] = useState([])
     const [authorProfile, setAuthorProfile] = useState([])
+    const [book, setBook] = useState({});
 
     const fetchData = useCallback(async function fetchData() {
         const response = await axios.get(`http://openlibrary.org/search.json?author=${query}`)
@@ -61,12 +65,7 @@ function App() {
                     <h2>{author && author}</h2>
 
 
-
-
                 </div>
-
-
-
 
 
                 {/*<div className="my-reading-list">*/}
@@ -84,24 +83,20 @@ function App() {
                 {/*</div>*/}
 
 
-                {/*<div className="book-card-container">*/}
+                <BookCaroussel
+                    books={books}
+                    setBook={setBook}
+                />
 
-                {/*    <p>*/}
-                {/*        {books && books.map((book) => {*/}
-                {/*        // console.log("HIER ZIT OOK EEN LOGJE", book)*/}
+                <div className="book-details">
+                    <BookDetails data={() => setReadingList([...readingList, book.title])}
+                                 title={book.title}
+                                 id={book.cover_i}
+                                 firstline={book.first_sentence}
+                                 author={book.author_key}
+                    />
 
-                {/*        return (*/}
-                {/*                <BookCard data={() => setReadingList([...readingList, book.title])}*/}
-                {/*                          title={book.title}*/}
-                {/*                          id={book.cover_i}*/}
-                {/*                          firstline={book.first_sentence}*/}
-                {/*                          author={book.author_key}*/}
-                {/*                />*/}
-                {/*        )*/}
-                {/*    })}*/}
-                {/*    </p>*/}
-
-                {/*</div>*/}
+                </div>
             </div>
         </>
 
