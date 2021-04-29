@@ -6,8 +6,8 @@ import MyReadingList from "./Components/MyReadingList";
 import BookCarrousel from "./Components/BookCarrousel";
 import Search from "./Components/Search";
 import search_image from "./assets/search_image.jpg";
-
-
+import Nav from "./Components/Nav"
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 
 function App() {
@@ -44,62 +44,61 @@ function App() {
 
             <div className="app-container">
 
-                <div className="app-container-left">
-                    <h1 className="logo">THE BOOKCLUB</h1>
-                </div>
 
+                {/*<div className="app-container-left">*/}
+                {/*    <h1 className="logo">THE BOOKCLUB</h1>*/}
+                {/*</div>*/}
 
 
                 <div className="App">
-                    <Search data={fetchData}
-                            value={query}
-                            change={e => setQuery(e.target.value)}
-                            image={search_image}
-                            alternative="search-image"
-                            authorProfile={authorProfile}
+                    <Nav/>
+                    <Switch>
 
-                    />
+<Route exact path="/">
+                        <Search data={fetchData}
+                                value={query}
+                                change={e => setQuery(e.target.value)}
+                                image={search_image}
+                                alternative="search-image"
+                                authorProfile={authorProfile}
+
+                        />
 
 
+                        <BookCarrousel
+                            books={books}
+                            setBook={setBook}
+                        />
+
+                        <div className="book-details">
+                            <BookDetails data={() => setReadingList([...readingList, book.title])}
+                                         title={book.title}
+                                         id={book.cover_i}
+                                         firstline={book.first_sentence}
+                                         author={author}
+                            />
+
+                        </div>
+</Route>
+
+<Route path="/reading-list">
+                        <div className="reading-list-container">
+                            <h2>MY READING LIST:</h2>
+
+                            <ul>
+                                {readingList.map((title) => {
+                                    return (
+
+                                        <MyReadingList item={title}/>
+
+                                    )
+                                })}
+                            </ul>
+                        </div>
+</Route>
+
+                    </Switch>
                 </div>
-
-
-                <BookCarrousel
-                    books={books}
-                    setBook={setBook}
-                />
-
-                <div className="book-details">
-                    <BookDetails data={() => setReadingList([...readingList, book.title])}
-                                 title={book.title}
-                                 id={book.cover_i}
-                                 firstline={book.first_sentence}
-                                 author={author}
-                    />
-
-                </div>
-
-
-
-                <div className="reading-list-container">
-                    <h2>MY READING LIST:</h2>
-
-                    <ul>
-                        {readingList.map((title) => {
-                            return (
-
-                                <MyReadingList item={title} />
-
-                            )
-                        })}
-                    </ul>
-                </div>
-
-
-
-
-
-
             </div>
         </>
 
