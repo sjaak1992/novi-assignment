@@ -16,9 +16,9 @@ function Search(props) {
                     <h2>By My Favorite Author.</h2>
                     </div>
 
-                    <div>
-                    <input value={props.value} onChange={props.change}/>
-                    <button onClick={props.data}><FcSearch/></button>
+                    <div >
+                    <input className='search-input' value={props.value} onChange={props.change}/>
+                    <button className="search-button" onClick={props.data}><FcSearch/></button>
                     </div>
 
                 </div>

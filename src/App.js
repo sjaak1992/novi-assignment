@@ -1,12 +1,13 @@
 import React, {useCallback, useEffect, useState} from "react";
 import './App.css';
 import axios from "axios";
-import BookCard from "./Components/BookCard";
 import BookDetails from "./Components/BookDetails";
 import MyReadingList from "./Components/MyReadingList";
 import BookCarrousel from "./Components/BookCarrousel";
 import Search from "./Components/Search";
 import search_image from "./assets/search_image.jpg";
+
+
 
 
 function App() {
@@ -46,9 +47,7 @@ function App() {
                 <div className="app-container-left">
                     <h1 className="logo">THE BOOKCLUB</h1>
                 </div>
-                {/*<div className="app-container-right">*/}
 
-                {/*</div>*/}
 
 
                 <div className="App">
@@ -65,21 +64,6 @@ function App() {
                 </div>
 
 
-                {/*<div className="my-reading-list">*/}
-
-                {/*    <ul>*/}
-                {/*        {readingList.map((title) => {*/}
-                {/*            return (*/}
-
-                {/*                <MyReadingList item={title} />*/}
-
-                {/*            )*/}
-                {/*        })}*/}
-                {/*    </ul>*/}
-
-                {/*</div>*/}
-
-
                 <BookCarrousel
                     books={books}
                     setBook={setBook}
@@ -91,10 +75,31 @@ function App() {
                                  id={book.cover_i}
                                  firstline={book.first_sentence}
                                  author={author}
-
                     />
 
                 </div>
+
+
+
+                <div className="reading-list-container">
+                    <h2>MY READING LIST:</h2>
+
+                    <ul>
+                        {readingList.map((title) => {
+                            return (
+
+                                <MyReadingList item={title} />
+
+                            )
+                        })}
+                    </ul>
+                </div>
+
+
+
+
+
+
             </div>
         </>
 

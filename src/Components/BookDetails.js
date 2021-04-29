@@ -1,7 +1,6 @@
 import React from 'react'
 import './BookDetails.css'
-import { RiHeartAddLine } from 'react-icons/ri'
-
+import {BiBookmarkPlus} from 'react-icons/bi'
 
 
 function BookDetails(props) {
@@ -25,7 +24,7 @@ function BookDetails(props) {
 
             <div className="detail-add">
 
-                <button onClick={props.data}><RiHeartAddLine/></button>
+                <button className="add-button" onClick={props.data}><BiBookmarkPlus/></button>
                 <h2>ADD TO MY READING LIST</h2>
             </div>
  </div>
