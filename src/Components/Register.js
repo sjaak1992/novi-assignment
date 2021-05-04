@@ -1,25 +1,43 @@
-import React from "react";
+import React, {useState} from "react";
 import './Register.css'
+import {useAuth} from "../Contexts/AuthContext";
 
-function Register (props){
+function Register (){
+    const { appUser, login, register } = useAuth();
+    const [userIntent, setUserIntent] = useState('Register')
+
+    async function onSubmit(event) {
+        event.preventDefault()
+        const [email, password] = event.target
+
+
+        if (userIntent === 'Register') {
+            register(email.value, password.value);
+
+        } else {
+            login(email.value, password.value);
+        }
+    }
+
+
     return (
         <>
-            { !props.appUser &&
+            { !appUser &&
 
-            <form onSubmit={props.data} // als er geen appuser wordt gevonden, laat formulier zien en anders h1 met welcome
+            <form onSubmit={onSubmit} // als er geen appuser wordt gevonden, laat formulier zien en anders h1 met welcome
                                 className="register-form">
-                <h2> { props.userIntent }</h2>
+                <h2> { userIntent }</h2>
 
-                { props.appUser && <h2> { props.appUser.email } </h2> }
+                { appUser && <h2> { appUser.email } </h2> }
 
                 <input type="email" placeholder="email"/>
                 <input type="password" placeholder="password"/>
 
-                <button type="submit" value={ props.userIntent }>Submit
+                <button type="submit" value={ userIntent }>Submit
                 </button>
 
-                <button onClick={props.toggleUserIntent}>
-                    Or  {props.userIntent === 'Register' ? 'Login' : 'Register'}
+                <button onClick={() => setUserIntent(userIntent === 'Register' ? 'Login' : 'Register' )} >
+                    Or  {userIntent === 'Register' ? 'Login' : 'Register'}
                 </button>
 
             </form>
@@ -27,7 +45,7 @@ function Register (props){
             }
 
 
-            { props.appUser && <h1> Welcome {props.appUser.email}</h1>}
+            { appUser && <h1> Welcome {appUser.email}</h1>}
 
         </>
     )

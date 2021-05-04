@@ -16,41 +16,34 @@ import app from "../modules/firebase";
 const context = createContext();
 
 
-
 const AuthContext = (props) => {
 
-    const [userIntent, setUserIntent] = useState('Register')
+
     const [appUser, setAppUser] = useState(undefined)
 
-    async function onSubmit(event) {
-        event.preventDefault()
-        // console.log(event) // -> target
-        const [email, password] = event.target  //uit het event halen we uit target email en password
-        // console.log(email.value, password.value); // waarden eruit halen
-        //firebase account koppelen(code staat in documentatie), dit is een promise - dus functie omzetten naar async functie
 
 
-        if (userIntent === 'Register') {
-            const response = await app.auth().createUserWithEmailAndPassword(email.value, password.value)
-            console.log('authentication response:', response)
-            setAppUser( response.user )
-        } else {
-            const response = await app.auth().signInWithEmailAndPassword(email.value, password.value)
-            console.log('authentication', response)
-            setAppUser( response.user )
-        }
+    async function register(email, password) {
+        const response = await app.auth().createUserWithEmailAndPassword(email, password)
+        console.log('authentication response:', response)
+        setAppUser(response.user)
     }
 
+    async function login(email, password) {
+        const response = await app.auth().signInWithEmailAndPassword(email, password)
+        console.log('authentication', response)
+        setAppUser(response.user)
+    }
 
 
     return (
 
-     <context.Provider
-     value={{userIntent, setUserIntent, appUser, setAppUser, onSubmit}}
-     >
+        <context.Provider
+            value={{ appUser, setAppUser, register, login}}
+        >
 
-         {props.children}
-     </context.Provider>
+            {props.children}
+        </context.Provider>
     )
 
 }

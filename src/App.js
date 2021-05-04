@@ -22,7 +22,7 @@ function App() {
     const [authorProfile, setAuthorProfile] = useState([])
     const [book, setBook] = useState({});
 
-    const {userIntent, setUserIntent, appUser, setAppUser, onSubmit} = useAuth();
+
 
 
 
@@ -108,13 +108,7 @@ function App() {
                     </Switch>
 
 
-                    <Register
-                        data={onSubmit}
-                        toggleUserIntent={() => setUserIntent(userIntent === 'Register' ? 'Login' : 'Register' )}
-                        appUser={appUser}
-                        userIntent={userIntent}
-
-                    />
+                    <Register />
 
 
 
