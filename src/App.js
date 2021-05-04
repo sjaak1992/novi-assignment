@@ -6,9 +6,11 @@ import BookDetails from "./Components/BookDetails";
 import MyReadingList from "./Components/MyReadingList";
 import BookCarrousel from "./Components/BookCarrousel";
 import Search from "./Components/Search";
+import Register from "./Components/Register";
 import search_image from "./assets/search_image.jpg";
 import Nav from "./Components/Nav"
 import app from './modules/firebase'
+import { useAuth } from "./Contexts/AuthContext";
 
 
 function App() {
@@ -19,8 +21,14 @@ function App() {
     const [readingList, setReadingList] = useState([])
     const [authorProfile, setAuthorProfile] = useState([])
     const [book, setBook] = useState({});
-    const [userIntent, setUserIntent] = useState('Register')
-    const [appUser, setAppUser] = useState(undefined)
+
+    const {userIntent, setUserIntent, appUser, setAppUser, onSubmit} = useAuth();
+
+
+
+
+
+// OPENLIBRARY API data ophalen:
 
     const fetchData = useCallback(async function fetchData() {
         const response = await axios.get(`http://openlibrary.org/search.json?author=${query}`)
@@ -42,47 +50,18 @@ function App() {
     }, [fetchData])
 
 
-// FIREBASE:
-    // firebase register
-
-    async function onSubmit(event) {
-        event.preventDefault()
-        // console.log(event) // -> target
-        const [email, password] = event.target  //uit het event halen we uit target email en password
-        // console.log(email.value, password.value); // waarden eruit halen
-        //firebase account koppelen(code staat in documentatie), dit is een promise - dus functie omzetten naar async functie
-
-
-        if (userIntent === 'Register') {
-            const response = await app.auth().createUserWithEmailAndPassword(email.value, password.value)
-            console.log('authentication response:', response)
-            setAppUser( response.user )
-        } else {
-            const response = await app.auth().signInWithEmailAndPassword(email.value, password.value)
-            console.log('authentication', response)
-            setAppUser( response.user )
-        }
-
-
-    }
-
 
     return (
         <>
 
             <div className="app-container">
 
-
-                {/*<div className="app-container-left">*/}
-                {/*    <h1 className="logo">THE BOOKCLUB</h1>*/}
-                {/*</div>*/}
-
-
                 <div className="App">
                     <Nav/>
                     <Switch>
 
                         <Route exact path="/">
+
                             <Search data={fetchData}
                                     value={query}
                                     change={e => setQuery(e.target.value)}
@@ -129,23 +108,14 @@ function App() {
                     </Switch>
 
 
+                    <Register
+                        data={onSubmit}
+                        toggleUserIntent={() => setUserIntent(userIntent === 'Register' ? 'Login' : 'Register' )}
+                        appUser={appUser}
+                        userIntent={userIntent}
 
-                    { !appUser && <form onSubmit={onSubmit} // als er geen appuser wordt gevonden, laat formulier zien en anders h1 met welcome
-                          className="register-form">
-                        <h2> { userIntent }</h2>
+                    />
 
-                        { appUser && <h2> { appUser.email } </h2> }
-
-                        <input type="email" placeholder="email"/>
-                        <input type="password" placeholder="password"/>
-                        <input type="submit" value={ userIntent }/>
-                        <button onClick={() => setUserIntent(userIntent === 'Register' ? 'Login' : 'Register' )}>
-                          Or  {userIntent === 'Register' ? 'Login' : 'Register'}
-                        </button>
-                    </form>}
-
-
-                    { appUser && <h1> Welcome {appUser.email}</h1>}
 
 
                 </div>
