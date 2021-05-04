@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from "react";
-import { Switch, Route } from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import './App.css';
 import axios from "axios";
 import BookDetails from "./Components/BookDetails";
@@ -8,20 +8,7 @@ import BookCarrousel from "./Components/BookCarrousel";
 import Search from "./Components/Search";
 import search_image from "./assets/search_image.jpg";
 import Nav from "./Components/Nav"
-import firebase from 'firebase';
-
-const app = firebase.initializeApp({
-
-    apiKey: "AIzaSyAPsM8nfreBH9HLZEnUFnVOrYEcAQvGQXM", //apiKey:process.env.apikey,
-    authDomain: "the-bookclub-6d200.firebaseapp.com",
-    projectId: "the-bookclub-6d200",
-    storageBucket: "the-bookclub-6d200.appspot.com",
-    messagingSenderId: "517824992374",
-    appId: "1:517824992374:web:ab127cb573e342a68f3b57",
-    measurementId: "G-E9FEW7049H"
-
-})
-
+import app from './modules/firebase'
 
 
 function App() {
@@ -32,6 +19,8 @@ function App() {
     const [readingList, setReadingList] = useState([])
     const [authorProfile, setAuthorProfile] = useState([])
     const [book, setBook] = useState({});
+    const [userIntent, setUserIntent] = useState('Register')
+    const [appUser, setAppUser] = useState(undefined)
 
     const fetchData = useCallback(async function fetchData() {
         const response = await axios.get(`http://openlibrary.org/search.json?author=${query}`)
@@ -53,6 +42,31 @@ function App() {
     }, [fetchData])
 
 
+// FIREBASE:
+    // firebase register
+
+    async function onSubmit(event) {
+        event.preventDefault()
+        // console.log(event) // -> target
+        const [email, password] = event.target  //uit het event halen we uit target email en password
+        // console.log(email.value, password.value); // waarden eruit halen
+        //firebase account koppelen(code staat in documentatie), dit is een promise - dus functie omzetten naar async functie
+
+
+        if (userIntent === 'Register') {
+            const response = await app.auth().createUserWithEmailAndPassword(email.value, password.value)
+            console.log('authentication response:', response)
+            setAppUser( response.user )
+        } else {
+            const response = await app.auth().signInWithEmailAndPassword(email.value, password.value)
+            console.log('authentication', response)
+            setAppUser( response.user )
+        }
+
+
+    }
+
+
     return (
         <>
 
@@ -68,61 +82,70 @@ function App() {
                     <Nav/>
                     <Switch>
 
-<Route exact path="/">
-                        <Search data={fetchData}
-                                value={query}
-                                change={e => setQuery(e.target.value)}
-                                image={search_image}
-                                alternative="search-image"
-                                authorProfile={authorProfile}
+                        <Route exact path="/">
+                            <Search data={fetchData}
+                                    value={query}
+                                    change={e => setQuery(e.target.value)}
+                                    image={search_image}
+                                    alternative="search-image"
+                                    authorProfile={authorProfile}
 
-                        />
-
-
-                        <BookCarrousel
-                            books={books}
-                            setBook={setBook}
-                        />
-
-                        <div className="book-details">
-                            <BookDetails data={() => setReadingList([...readingList, book.title])}
-                                         title={book.title}
-                                         id={book.cover_i}
-                                         firstline={book.first_sentence}
-                                         author={author}
                             />
 
-                        </div>
-</Route>
 
-<Route path="/reading-list">
-                        <div className="reading-list-container">
-                            <h2>MY READING LIST:</h2>
+                            <BookCarrousel
+                                books={books}
+                                setBook={setBook}
+                            />
 
-                            <ul>
-                                {readingList.map((title) => {
-                                    return (
+                            <div className="book-details">
+                                <BookDetails data={() => setReadingList([...readingList, book.title])}
+                                             title={book.title}
+                                             id={book.cover_i}
+                                             firstline={book.first_sentence}
+                                             author={author}
+                                />
 
-                                        <MyReadingList item={title}/>
+                            </div>
+                        </Route>
 
-                                    )
-                                })}
-                            </ul>
-                        </div>
-</Route>
+                        <Route path="/reading-list">
+                            <div className="reading-list-container">
+                                <h2>MY READING LIST:</h2>
 
+                                <ul>
+                                    {readingList.map((title) => {
+                                        return (
+
+                                            <MyReadingList item={title}/>
+
+                                        )
+                                    })}
+                                </ul>
+                            </div>
+                        </Route>
 
 
                     </Switch>
 
 
-                    <div className="login-form">
-                        <h2>Login form: </h2>
+
+                    { !appUser && <form onSubmit={onSubmit} // als er geen appuser wordt gevonden, laat formulier zien en anders h1 met welcome
+                          className="register-form">
+                        <h2> { userIntent }</h2>
+
+                        { appUser && <h2> { appUser.email } </h2> }
+
                         <input type="email" placeholder="email"/>
                         <input type="password" placeholder="password"/>
-                        <input type="submit" value="login"/>
+                        <input type="submit" value={ userIntent }/>
+                        <button onClick={() => setUserIntent(userIntent === 'Register' ? 'Login' : 'Register' )}>
+                          Or  {userIntent === 'Register' ? 'Login' : 'Register'}
+                        </button>
+                    </form>}
 
-                    </div>
+
+                    { appUser && <h1> Welcome {appUser.email}</h1>}
 
 
                 </div>

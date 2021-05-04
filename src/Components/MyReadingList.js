@@ -7,7 +7,7 @@ function MyReadingList(props) {
     return (
         <>
 
-            <li>{props.item}</li>
+            <li key={props.item}>{props.item}</li>
         </>
     )
 }

@@ -62,6 +62,9 @@ button {
     font-family: var(--font-main);
     font-size: 1rem;
     padding: 0.25rem;
+    font-style: italic;
+    color: var(--color-primary);
+
 }
 
 
