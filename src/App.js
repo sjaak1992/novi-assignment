@@ -1,4 +1,5 @@
 import React, {useCallback, useEffect, useState} from "react";
+import { Switch, Route } from "react-router-dom";
 import './App.css';
 import axios from "axios";
 import BookDetails from "./Components/BookDetails";
@@ -7,7 +8,20 @@ import BookCarrousel from "./Components/BookCarrousel";
 import Search from "./Components/Search";
 import search_image from "./assets/search_image.jpg";
 import Nav from "./Components/Nav"
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import firebase from 'firebase';
+
+const app = firebase.initializeApp({
+
+    apiKey: "AIzaSyAPsM8nfreBH9HLZEnUFnVOrYEcAQvGQXM", //apiKey:process.env.apikey,
+    authDomain: "the-bookclub-6d200.firebaseapp.com",
+    projectId: "the-bookclub-6d200",
+    storageBucket: "the-bookclub-6d200.appspot.com",
+    messagingSenderId: "517824992374",
+    appId: "1:517824992374:web:ab127cb573e342a68f3b57",
+    measurementId: "G-E9FEW7049H"
+
+})
+
 
 
 function App() {
@@ -97,7 +111,20 @@ function App() {
                         </div>
 </Route>
 
+
+
                     </Switch>
+
+
+                    <div className="login-form">
+                        <h2>Login form: </h2>
+                        <input type="email" placeholder="email"/>
+                        <input type="password" placeholder="password"/>
+                        <input type="submit" value="login"/>
+
+                    </div>
+
+
                 </div>
             </div>
         </>
