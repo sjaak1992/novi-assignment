@@ -1,11 +1,17 @@
 import React from 'react'
 import './BookDetails.css'
 import {BiBookmarkPlus} from 'react-icons/bi'
+import firebase from "../modules/firebase";
 
 
 function BookDetails(props) {
 
+//firebase
+
+
+
     return (
+
         <>
 <div className="book-details-container">
             <img
@@ -24,7 +30,7 @@ function BookDetails(props) {
 
             <div className="detail-add">
 
-                <button className="add-button" onClick={props.data}><BiBookmarkPlus/></button>
+                <button className="add-button" onClick={props.addToReadingList}><BiBookmarkPlus/></button>
                 <h2>ADD TO MY READING LIST</h2>
             </div>
  </div>

@@ -9,6 +9,9 @@ import Search from "./Components/Search";
 import Register from "./Components/Register";
 import search_image from "./assets/search_image.jpg";
 import Nav from "./Components/Nav"
+import {useReadingList} from "./Contexts/ReadingListContext";
+
+
 
 
 
@@ -17,9 +20,9 @@ function App() {
     const [query, setQuery] = useState('dahl')
     const [author, setAuthor] = useState([])
     const [books, setBooks] = useState([]);
-    const [readingList, setReadingList] = useState([])
     const [authorProfile, setAuthorProfile] = useState([])
-    const [book, setBook] = useState({});
+
+    const {readingList, setReadingList, book, setBook} = useReadingList();
 
 
 
@@ -72,7 +75,7 @@ function App() {
                             />
 
                             <div className="book-details">
-                                <BookDetails data={() => setReadingList([...readingList, book.title])}
+                                <BookDetails addToReadingList={() => setReadingList([...readingList, book.title])}
                                              title={book.title}
                                              id={book.cover_i}
                                              firstline={book.first_sentence}
@@ -80,6 +83,9 @@ function App() {
                                 />
 
                             </div>
+
+
+
                         </Route>
 
                         <Route path="/reading-list">
@@ -105,9 +111,6 @@ function App() {
                         </Route>
 
                     </Switch>
-
-
-
 
 
 
