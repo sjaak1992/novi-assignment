@@ -9,8 +9,7 @@ import Search from "./Components/Search";
 import Register from "./Components/Register";
 import search_image from "./assets/search_image.jpg";
 import Nav from "./Components/Nav"
-import app from './modules/firebase'
-import { useAuth } from "./Contexts/AuthContext";
+
 
 
 function App() {
@@ -24,11 +23,6 @@ function App() {
 
 
 
-
-
-
-
-// OPENLIBRARY API data ophalen:
 
     const fetchData = useCallback(async function fetchData() {
         const response = await axios.get(`http://openlibrary.org/search.json?author=${query}`)
@@ -92,7 +86,7 @@ function App() {
                             <div className="reading-list-container">
                                 <h2>MY READING LIST:</h2>
 
-                                <ul>
+                                <ul className="reading-list-item">
                                     {readingList.map((title) => {
                                         return (
 
@@ -104,11 +98,16 @@ function App() {
                             </div>
                         </Route>
 
+                        <Route path="/register">
+
+                        <Register />
+
+                        </Route>
 
                     </Switch>
 
 
-                    <Register />
+
 
 
 

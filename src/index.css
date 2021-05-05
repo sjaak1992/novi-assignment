@@ -17,22 +17,18 @@ html {
 }
 
 
-h1 {
-    font-family: var(--font-logo);
-    font-size: 4rem;
-    color: var(--color-primary);
-}
 
 h2 {
     font-family: var(--font-main);
     font-size: 1.5rem;
     color: var(--color-primary);
+    letter-spacing: 0.2rem;
 }
 
 li {
     font-family: var(--font-main);
     font-size: 1rem;
-    color: var(--color-primary);
+    letter-spacing: 0.1rem;
 }
 
 h3, input {
@@ -40,6 +36,7 @@ h3, input {
     font-style: italic;
     font-size: 1rem;
     color: var(--color-primary);
+    letter-spacing: 0.1rem;
 }
 
 p {

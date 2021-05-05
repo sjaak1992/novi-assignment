@@ -3,18 +3,17 @@
 // [x] - create context
 // [x] - context provider:
 // [x]- values en functies doorgeven
-// - (eigen hook maken)
 // [] - useState
 // [x] - wrappen maken
 // [x] - children renderen
 // [x] - wrapper gebruiken in app
+// - (eigen hook maken)
 
 import React, {createContext, useState, useContext} from 'react'
 import app from "../modules/firebase";
 
 
 const context = createContext();
-
 
 const AuthContext = (props) => {
 
@@ -39,7 +38,7 @@ const AuthContext = (props) => {
     return (
 
         <context.Provider
-            value={{ appUser, setAppUser, register, login}}
+            value={{ appUser, register, login}}
         >
 
             {props.children}

@@ -13,11 +13,6 @@
     width: 30vw;
     background-color: var(--color-primary);
 }
-.logo {
-    padding: 25px;
-    margin: 10px;
-    color:var(--color-primary)
-}
 
 
 .register-form {

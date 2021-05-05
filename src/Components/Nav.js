@@ -6,42 +6,48 @@ import "./Nav.css"
 function Nav() {
 
     return (
-        <nav className="nav-bar">
-            <h1 className="logo">THE BOOKCLUB</h1>
+        <>
+            <div className="logo"> BOOKCLUB </div>
+            <nav>
 
-            <div className="nav-links">
-            <ul >
+            <ul className="nav-links">
                 <Link
                     to='/home'
-                    classname="text-link">
+                    className="text-link">
                     <li>HOME</li>
                 </Link>
 
 
                 <Link
-                    to='/login'
-                    classname="text-link">
-                    <li>LOGIN</li>
+                    to='/register'
+                    className="text-link">
+                    <li>Login</li>
                 </Link>
 
                 <Link
                     to='/profile'
-                    classname="text-link">
+                    className="text-link">
                     <li>PROFILE</li>
                 </Link>
 
                     <Link
                         to='/reading-list'
-                        classname="text-link">
-                        <li>READING LIST</li>
+                        className="text-link">
+                        <li>books</li>
                     </Link>
 
-
-
-
             </ul>
+
+            <div className="burger">
+                <div className="line1"></div>
+                <div className="line2"></div>
+                <div className="line3"></div>
+
             </div>
+
+
         </nav>
+        </>
     );
 }
 

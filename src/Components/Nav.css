@@ -1,5 +1,37 @@
-.nav-links {
+nav {
     display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    min-height: 7rem;
+    color: var(--color-white);
+}
 
+
+.logo {
+    position: fixed;
+    left: 2rem;
+    top: 2rem;
+    font-family: var(--font-main);
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    color: var(--color-primary);
 
 }
+
+.text-link li {
+    padding: 0.2rem;
+}
+
+.nav-link {
+
+}
+
+.text-link {
+    text-decoration: none;
+    letter-spacing: 0.3rem;
+    text-transform: lowercase;
+    color:var(--color-white);
+}
+
+

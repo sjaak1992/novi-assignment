@@ -7,13 +7,16 @@
 h2{
     margin-bottom: 1rem;
 }
+
 ul {
     list-style: none;
+    color: var(--color-primary);
+
+
 }
 
-ul li:before {
+.reading-list-item li:before {
     content: "\2665";
-    color: var(--color-primary);
+    color: #D9925D ;
     padding: 5px;
 }
-
