@@ -21,7 +21,6 @@ function App() {
     const [author, setAuthor] = useState([])
     const [books, setBooks] = useState([]);
     const [authorProfile, setAuthorProfile] = useState([])
-
     const {readingList, setReadingList, book, setBook} = useReadingList();
 
 
@@ -75,9 +74,7 @@ function App() {
                             />
 
                             <div className="book-details">
-                                <BookDetails addToReadingList={() => setReadingList([...readingList, book.title])}
-                                             title={book.title}
-                                             id={book.cover_i}
+                                <BookDetails
                                              firstline={book.first_sentence}
                                              author={author}
                                 />
@@ -93,10 +90,10 @@ function App() {
                                 <h2>MY READING LIST:</h2>
 
                                 <ul className="reading-list-item">
-                                    {readingList.map((title) => {
+                                    {readingList.map((readingListItem) => {
                                         return (
 
-                                            <MyReadingList item={title}/>
+                                            <MyReadingList item={readingListItem}/>
 
                                         )
                                     })}

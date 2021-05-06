@@ -3,7 +3,6 @@ import React, {createContext, useState, useContext} from 'react'
 const context = createContext();
 
 
-
 const ReadingListContext = (props) => {
     const [readingList, setReadingList] = useState([])
     const [book, setBook] = useState({});
