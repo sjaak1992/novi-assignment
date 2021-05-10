@@ -12,18 +12,13 @@ import Nav from "./Components/Nav"
 import {useReadingList} from "./Contexts/ReadingListContext";
 
 
-
-
-
 function App() {
 
     const [query, setQuery] = useState('dahl')
     const [author, setAuthor] = useState([])
     const [books, setBooks] = useState([]);
     const [authorProfile, setAuthorProfile] = useState([])
-    const {readingList, setReadingList, book, setBook} = useReadingList();
-
-
+    const {readingList, setBook} = useReadingList();
 
 
     const fetchData = useCallback(async function fetchData() {
@@ -44,7 +39,6 @@ function App() {
         fetchData();
 
     }, [fetchData])
-
 
 
     return (
@@ -73,14 +67,8 @@ function App() {
                                 setBook={setBook}
                             />
 
-                            <div className="book-details">
-                                <BookDetails
-                                             firstline={book.first_sentence}
-                                             author={author}
-                                />
 
-                            </div>
-
+                            <BookDetails/>
 
 
                         </Route>
@@ -101,14 +89,16 @@ function App() {
                             </div>
                         </Route>
 
-                        <Route path="/register">
 
-                        <Register />
+                            <Route path="/register">
 
-                        </Route>
+                                <Register/>
+
+                            </Route>
+
+
 
                     </Switch>
-
 
 
                 </div>

@@ -16,6 +16,8 @@ nav {
     text-transform: uppercase;
     letter-spacing: 0.5rem;
     color: var(--color-primary);
+    background-color: var(--color-white);
+    padding: 1rem;
 
 }
 
