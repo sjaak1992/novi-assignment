@@ -3,17 +3,18 @@ import './Register.css'
 import {useAuth} from "../Contexts/AuthContext";
 import app from '../modules/firebase'
 
+//firebase config
+const db = app.firestore();
 
 
+function Register () {
 
-
-
-function Register (){
-    const { appUser, login, register } = useAuth();
+    const {appUser, login, register} = useAuth();
     const [userIntent, setUserIntent] = useState('Register')
 
+
     async function onSubmit(event) {
-        //prevent reaload
+        //prevent reload
         event.preventDefault()
 
         //isolate email and password from event
@@ -29,37 +30,40 @@ function Register (){
     }
 
 
-    return (
-        <>
-            { !appUser &&
+        return (
+            <>
+                {!appUser &&
 
-            <form onSubmit={onSubmit} // als er geen appuser wordt gevonden, laat formulier zien en anders h1 met welcome
-                                className="register-form">
-                <h2> { userIntent } </h2>
+                <form
+                    onSubmit={onSubmit} // als er geen appuser wordt gevonden, laat formulier zien en anders h1 met welcome
+                    className="register-form">
+                    <h2> {userIntent} </h2>
 
-                { appUser && <h2> { appUser.email } </h2> }
+                    {appUser && <h2> {appUser.email} </h2>}
 
-                <input type="email" placeholder="email"/>
-                <input type="password" placeholder="password"/>
+                    <input type="email" placeholder="email"/>
+                    <input type="password" placeholder="password"/>
 
-                <button type="submit" value={ userIntent }>Submit
-                </button>
+                    <button type="submit" value={userIntent} >Submit
+                    </button>
 
-                <button onClick={() => setUserIntent(userIntent === 'Register' ? 'Login' : 'Register' )} >
-                    Or  {userIntent === 'Register' ? 'Login' : 'Register'}
-                </button>
+                    <button onClick={() => setUserIntent(userIntent === 'Register' ? 'Login' : 'Register')}>
+                        Or {userIntent === 'Register' ? 'Login' : 'Register'}
+                    </button>
 
-            </form>
-
-            }
+                </form>
 
 
-            { appUser && <h1> Welcome {appUser.email}</h1>}
+                }
 
-        </>
-    )
 
-}
+                {appUser && <h1> Welcome {appUser.email}</h1>}
+
+            </>
+        )
+
+    }
+
 
 
 

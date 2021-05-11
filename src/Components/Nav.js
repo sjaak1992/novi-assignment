@@ -12,16 +12,9 @@ function Nav() {
 
             <ul className="nav-links">
                 <Link
-                    to='/home'
+                    to='/'
                     className="text-link">
                     <li>HOME</li>
-                </Link>
-
-
-                <Link
-                    to='/register'
-                    className="text-link">
-                    <li>Login</li>
                 </Link>
 
                 <Link
@@ -29,6 +22,13 @@ function Nav() {
                     className="text-link">
                     <li>PROFILE</li>
                 </Link>
+
+                <Link
+                    to='/login'
+                    className="text-link">
+                    <li>LOGIN</li>
+                </Link>
+
 
                     <Link
                         to='/reading-list'

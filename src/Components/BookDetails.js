@@ -3,20 +3,20 @@ import './BookDetails.css'
 import {BiBookmarkPlus} from 'react-icons/bi'
 import {useReadingList} from "../Contexts/ReadingListContext"
 import app from "../modules/firebase";
+import {useAuth} from "../Contexts/AuthContext";
 
 ///firebase config
 const db = app.firestore(); // documentatie, firestore aanroepen
 
 
-// nodig:
-// user id (uid)
 
 
 function BookDetails() {
 
+    const {appUser, login, register} = useAuth();
     const {readingList, setReadingList, book} = useReadingList();
 
-
+    // console.log("appuser?",appUser)
     //firebase:
     async function addToReadingList() {
 
@@ -27,10 +27,10 @@ function BookDetails() {
             author_name: book.author_name,
             author_key: book.author_key,
             key: book.key
-        }
-        db.collection('users').doc("1234").collection("readinglist").add(readingListItem);
-        setReadingList([...readingList, readingListItem])
 
+        }
+        db.collection('users').doc(appUser.uid).collection("readinglist").add(readingListItem);
+        setReadingList([...readingList, readingListItem])
     }
 
 
@@ -55,7 +55,10 @@ function BookDetails() {
 
                     <div className="detail-add">
 
+
+                        {appUser === undefined && <p>Log in to add book!</p>}
                         <button className="add-button"
+                                disabled={appUser === undefined}
                                 onClick={addToReadingList}>
                             <BiBookmarkPlus/>
                         </button>

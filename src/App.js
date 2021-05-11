@@ -90,18 +90,17 @@ function App() {
                         </Route>
 
 
-                            <Route path="/register">
+                            <Route path="/login">
 
-                                <Register/>
+                                <Register />
 
                             </Route>
-
-
 
                     </Switch>
 
 
                 </div>
+
             </div>
         </>
 
