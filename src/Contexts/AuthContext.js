@@ -3,9 +3,9 @@ import app from "../modules/firebase";
 
 const db = app.firestore();
 
-
-
 const context = createContext();
+
+
 
 const AuthContext = (props) => {
 

@@ -10,7 +10,6 @@ const db = app.firestore(); // documentatie, firestore aanroepen
 
 
 
-
 function BookDetails() {
 
     const {appUser, login, register} = useAuth();
@@ -23,7 +22,6 @@ function BookDetails() {
         const readingListItem = {
             cover_i: book.cover_i,
             title: book.title,
-            // first_sentence: book.first_sentence,
             author_name: book.author_name,
             author_key: book.author_key,
             key: book.key
@@ -56,7 +54,7 @@ function BookDetails() {
                     <div className="detail-add">
 
 
-                        {appUser === undefined && <p>Log in to add book!</p>}
+                        {appUser === undefined && <p className="login-message">Log in to add book!</p>}
                         <button className="add-button"
                                 disabled={appUser === undefined}
                                 onClick={addToReadingList}>
