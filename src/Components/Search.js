@@ -3,8 +3,9 @@ import './Search.css'
 import {FcSearch} from 'react-icons/fc'
 
 
-
 function Search(props) {
+
+
     return (
         <>
             <div className="container">
@@ -18,7 +19,13 @@ function Search(props) {
 
                     <div >
                     <input className='search-input' value={props.value} onChange={props.change}/>
-                    <button className="search-button" onClick={props.data}><FcSearch/></button>
+
+                    <button
+                        className="search-button"
+                        onClick={props.clickHandler}>
+                        <FcSearch/>
+                    </button>
+
                     </div>
 
                 </div>

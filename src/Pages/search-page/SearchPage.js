@@ -4,29 +4,33 @@ import search_image from "../../assets/search_image.jpg";
 import BookCarrousel from "../../Components/BookCarrousel";
 import BookDetails from "../../Components/BookDetails";
 import {useReadingList} from "../../Contexts/ReadingListContext";
+import { Grid } from 'react-spinners-css';
 import axios from "axios";
 
 
 
-function SearchPage(){
+function SearchPage() {
 
-    const [query, setQuery] = useState('dahl')
+    const [query, setQuery] = useState('')
+    const [inputText, setInputText] = useState('dahl')
     const [author, setAuthor] = useState([])
     const [books, setBooks] = useState([]);
     const [authorProfile, setAuthorProfile] = useState([])
-
+    const [loading, setLoading] = useState(true)
     const {setBook} = useReadingList();
 
+
     const fetchData = useCallback(async function fetchData() {
+        setLoading(true)
         const response = await axios.get(`http://openlibrary.org/search.json?author=${query}`)
-        console.log(response)
+        // console.log(response)
 
         if (response.data.docs.length > 0) {
             setAuthor(response.data.docs[0].author_name[0])
             setBooks(response.data.docs)
             setAuthorProfile(response.data.docs[0].author_key[0])
         }
-
+        setLoading(false)
     }, [query])
 
 
@@ -34,20 +38,22 @@ function SearchPage(){
 
         fetchData();
 
+
     }, [fetchData])
 
 
     return (
         <>
 
-            <Search data={fetchData}
-                    value={query}
-                    change={e => setQuery(e.target.value)}
+            <Search clickHandler={() => setQuery(inputText)}
+                    value={inputText}
+                    change={e => setInputText(e.target.value)}
                     image={search_image}
                     alternative="search-image"
                     authorProfile={authorProfile}
             />
 
+            {loading && <Grid color="#5e7374" size={200}/>}
 
             <BookCarrousel
                 books={books}
@@ -57,9 +63,10 @@ function SearchPage(){
 
             <BookDetails/>
 
-
         </>
     )
 }
+
+
 
 export default SearchPage;

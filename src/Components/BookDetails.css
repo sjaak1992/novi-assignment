@@ -41,6 +41,7 @@
     color: var(--color-primary);
 }
 
+
 .add-button:disabled {
     background-color: transparent;
     color: #d0dbd3;
