@@ -7,52 +7,54 @@ import app from "../../modules/firebase";
 
 const db = app.firestore();
 
-function ReadingListPage (){
+function ReadingListPage() {
 
     const {readingList, setReadingList} = useReadingList();
-    const {appUser, login, register} = useAuth();
+    const {appUser} = useAuth();
 
 
     useEffect(() => {
 
-            async function fetchUserData (){
-                try {
-                    const response = await db.collection('users').doc(appUser.uid).collection("readinglist").get();
-                    // console.log(response.docs.map(doc => doc.data())) // readinglist die je terug krijgt
-                    setReadingList(response.docs.map(doc => doc.data()))
+        async function fetchUserData() {
+            try {
+                const response = await db.collection('users').doc(appUser.uid).collection("readinglist").get();
+                // console.log(response.docs.map(doc => doc.data())) // readinglist die je terug krijgt
+                setReadingList(response.docs.map(doc => doc.data()))
 
 
-                } catch (error){
-                    console.error(error)
-                }
-
+            } catch (error) {
+                console.error(error)
             }
-            fetchUserData();
+
+        }
+
+        fetchUserData();
 
 
-        }, [appUser])
+    }, [appUser])
+    // console.log(readingList)
 
-    console.log(readingList)
-        return (
-            <>
-                <div className="reading-list-container">
-                    <h2>MY READING LIST:</h2>
 
-                    <ul className="reading-list-item">
-                        {readingList.map((readingListItem) => {
-                            return (
+    return (
+        <>
+            <div className="reading-list-container">
+                <h2>MY READING LIST:</h2>
 
-                                <MyReadingList item={readingListItem}/>
+                <ul className="reading-list-item">
+                    {readingList.map((readingListItem) => {
+                        return (
 
-                            )
-                        })}
-                    </ul>
+                            <MyReadingList item={readingListItem}/>
 
-                </div>
+                        )
+                    })}
+                </ul>
 
-            </>
-        )
-    }
+            </div>
+
+        </>
+    )
+}
 
 
 export default ReadingListPage;

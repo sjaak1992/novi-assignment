@@ -5,6 +5,7 @@ import Nav from "./Components/Nav"
 import ReadingListPage from "./Pages/readinglist-page/ReadingListPage";
 import LoginPage from "./Pages/login-page/LoginPage";
 import SearchPage from "./Pages/search-page/SearchPage";
+import LogoutPage from "./Pages/logout-page/LogoutPage";
 
 
 function App() {
@@ -27,6 +28,10 @@ function App() {
 
                         <Route path="/login">
                             <LoginPage/>
+                        </Route>
+
+                        <Route path="/logout">
+                           <LogoutPage />
                         </Route>
 
                     </Switch>

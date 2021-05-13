@@ -1,16 +1,20 @@
 import React, {useState} from "react";
 import './Register.css'
 import {useAuth} from "../Contexts/AuthContext";
+import {useHistory} from "react-router-dom"
 import app from '../modules/firebase'
 
 //firebase config
 const db = app.firestore();
 
 
-function Register () {
+function Register() {
 
-    const {appUser, login, register} = useAuth();
+    const {appUser, login, register, logout} = useAuth();
     const [userIntent, setUserIntent] = useState('Register')
+    const [error, setError] = useState('')
+
+    const history = useHistory();
 
 
     async function onSubmit(event) {
@@ -29,42 +33,57 @@ function Register () {
         }
     }
 
-
-        return (
-            <>
-                {!appUser &&
-
-                <form
-                    onSubmit={onSubmit} // als er geen appuser wordt gevonden, laat formulier zien en anders h1 met welcome
-                    className="register-form">
-                    <h2> {userIntent} </h2>
-
-                    {appUser && <h2> {appUser.email} </h2>}
-
-                    <input type="email" placeholder="email"/>
-                    <input type="password" placeholder="password"/>
-
-                    <button type="submit" value={userIntent} >Submit
-                    </button>
-
-                    <button onClick={() => setUserIntent(userIntent === 'Register' ? 'Login' : 'Register')}>
-                        Or {userIntent === 'Register' ? 'Login' : 'Register'}
-                    </button>
-
-                </form>
-
-
-                }
-
-
-                {appUser && <h1> Welcome {appUser.email}</h1>}
-
-            </>
-        )
+    async function handleLogout() {
+        try {
+            await logout()
+            history.push("/login")
+        } catch (error) {
+            setError('Failed to log out')
+        }
 
     }
 
 
+    return (
+        <>
+            <div className="register-form-container">
+            {!appUser &&
+
+            <form
+                onSubmit={onSubmit} // als er geen appuser wordt gevonden, laat formulier zien en anders h1 met welcome
+                className="register-form">
+                <h2> {userIntent} </h2>
+
+                {appUser && <h2> {appUser.email} </h2>}
+
+                <input className='register-form--element' type="email" placeholder="email"/>
+                <input className='register-form--element' type="password" placeholder="password"/>
+
+                <button className='register-form--element' type="submit" value={userIntent}>Submit
+                </button>
+
+                <button className='register-form--element'
+                        onClick={() => setUserIntent(userIntent === 'Register' ? 'Login' : 'Register')}>
+                    Or
+                     { userIntent === 'Register' ? 'Login' : 'Register' }
+                </button>
+
+                {appUser && <h1> Welcome {appUser.email}</h1>}
+
+
+
+            </form>
+
+
+            }
+
+            </div>
+
+
+        </>
+    )
+
+}
 
 
 

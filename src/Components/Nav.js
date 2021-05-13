@@ -1,33 +1,37 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import "./Nav.css"
+import {BiExit} from 'react-icons/bi'
+import {useAuth} from "../Contexts/AuthContext";
 
 
 function Nav() {
 
+    const {logout} = useAuth();
+
     return (
         <>
-            <div className="logo"> BOOKCLUB </div>
+            <div className="logo"> BOOKCLUB</div>
             <nav>
 
-            <ul className="nav-links">
-                <Link
-                    to='/'
-                    className="text-link">
-                    <li>HOME</li>
-                </Link>
+                <ul className="nav-links">
+                    <Link
+                        to='/'
+                        className="text-link">
+                        <li>home</li>
+                    </Link>
 
-                <Link
-                    to='/profile'
-                    className="text-link">
-                    <li>PROFILE</li>
-                </Link>
+                    <Link
+                        to='/profile'
+                        className="text-link">
+                        <li>profile</li>
+                    </Link>
 
-                <Link
-                    to='/login'
-                    className="text-link">
-                    <li>LOGIN</li>
-                </Link>
+                    <Link
+                        to='/login'
+                        className="text-link">
+                        <li>login</li>
+                    </Link>
 
 
                     <Link
@@ -36,10 +40,21 @@ function Nav() {
                         <li>books</li>
                     </Link>
 
-            </ul>
+                    <Link
+                        to='/logout'
+                    >
+                        <li>
+                            <button
+                                className="nav-exit-icon"
+                                onClick={logout}><BiExit/></button>
+                        </li>
+                    </Link>
 
 
-        </nav>
+                </ul>
+
+
+            </nav>
         </>
     );
 }

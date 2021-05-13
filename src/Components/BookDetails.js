@@ -31,7 +31,7 @@ function BookDetails() {
         setReadingList([...readingList, readingListItem])
     }
 
-
+    console.log("wat is dit", book.author_name)
 
         return (
 
@@ -45,7 +45,7 @@ function BookDetails() {
                     />
 
                     <div className="detail-info">
-                        <h2>{book.author}</h2>
+                        <h2>{book.author_name}</h2>
                         <p className="book-details__title">{book.title}</p>
                         <p className="first-sentence"> {book.first_sentence} </p>
 

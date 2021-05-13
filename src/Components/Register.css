@@ -1,0 +1,23 @@
+
+.register-form-container {
+    padding: 45px;
+    margin: 2rem;
+    background-color: var(--color-white);
+}
+
+
+.register-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin: 1rem;
+
+}
+
+
+.register-form--element{
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
