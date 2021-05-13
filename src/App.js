@@ -7,14 +7,12 @@ import LoginPage from "./Pages/login-page/LoginPage";
 import SearchPage from "./Pages/search-page/SearchPage";
 import LogoutPage from "./Pages/logout-page/LogoutPage";
 import {useAuth} from "./Contexts/AuthContext";
-
-
-
+import PrivateRoute from "./Components/PrivateRoute";
 
 
 function App() {
     const {appUser} = useAuth()
-    console.log("user?", appUser)
+    // console.log("user?", appUser)
     return (
         <>
 
@@ -27,11 +25,17 @@ function App() {
                             <SearchPage/>
                         </Route>
 
-                        <Route path="/reading-list">
-                            {appUser ? <ReadingListPage/> : <Redirect to="/login"/>}
+                        <PrivateRoute path="/reading-list">
+                            <ReadingListPage/>
+                        </PrivateRoute>
 
-                        </Route>
+                        {/*<Route path="/reading-goal">*/}
+                        {/*    {appUser ? <ReadingGoalPage/> : <Redirect to="/login"/>}*/}
+                        {/*</Route>*/}
 
+                        {/*<PrivateRoute path="/login">*/}
+                        {/*    <LoginPage/>*/}
+                        {/*</PrivateRoute>*/}
 
                         <Route path="/login">
                             <LoginPage/>
