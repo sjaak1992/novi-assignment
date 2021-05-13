@@ -7,7 +7,7 @@ import {useAuth} from "../Contexts/AuthContext";
 
 function Nav() {
 
-    const {logout} = useAuth();
+    const {logout, appUser} = useAuth();
 
     return (
         <>
@@ -33,12 +33,14 @@ function Nav() {
                         <li>login</li>
                     </Link>
 
-
+                    {appUser &&
                     <Link
                         to='/reading-list'
                         className="text-link">
                         <li>books</li>
                     </Link>
+                    }
+
 
                     <Link
                         to='/logout'
