@@ -33,10 +33,11 @@ function Register() {
         }
     }
 
+
     async function handleLogout() {
         try {
             await logout()
-            history.push("/login")
+
         } catch (error) {
             setError('Failed to log out')
         }
@@ -46,36 +47,37 @@ function Register() {
 
     return (
         <>
+
             <div className="register-form-container">
-            {!appUser &&
+                {!appUser &&
 
-            <form
-                onSubmit={onSubmit} // als er geen appuser wordt gevonden, laat formulier zien en anders h1 met welcome
-                className="register-form">
-                <h2> {userIntent} </h2>
+                <form
+                    onSubmit={onSubmit} // als er geen appuser wordt gevonden, laat formulier zien en anders h1 met welcome
+                    className="register-form">
+                    <h2> {userIntent} </h2>
 
-                {appUser && <h2> {appUser.email} </h2>}
+                    {appUser && <h2> {appUser.email} </h2>}
 
-                <input className='register-form--element' type="email" placeholder="email"/>
-                <input className='register-form--element' type="password" placeholder="password"/>
+                    {/*<input className="register-form--element" type="text" placeholder="firstname"/>*/}
+                    <input className='register-form--element' type="email" placeholder="email"/>
+                    <input className='register-form--element' type="password" placeholder="password"/>
 
-                <button className='register-form--element' type="submit" value={userIntent}>Submit
-                </button>
+                    <button className='register-form--element' type="submit" value={userIntent}>Submit
+                    </button>
 
-                <button className='register-form--element'
-                        onClick={() => setUserIntent(userIntent === 'Register' ? 'Login' : 'Register')}>
-                    Or
-                     { userIntent === 'Register' ? 'Login' : 'Register' }
-                </button>
+                    <button className='register-form--element'
+                            onClick={() => setUserIntent(userIntent === 'Register' ? 'Login' : 'Register')}>
+                        Or
+                        {userIntent === 'Register' ? 'Login' : 'Register'}
+                    </button>
 
-                {appUser && <h1> Welcome {appUser.email}</h1>}
-
-
-
-            </form>
+                    {appUser && <h1> Welcome {appUser.email}</h1>}
 
 
-            }
+                </form>
+
+
+                }
 
             </div>
 
@@ -84,7 +86,6 @@ function Register() {
     )
 
 }
-
 
 
 export default Register;

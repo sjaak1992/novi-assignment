@@ -1,17 +1,34 @@
-import React, {createContext, useState, useContext} from 'react'
+import React, {createContext, useState, useContext, useEffect} from 'react'
 import app from "../modules/firebase";
 
-// const db = app.firestore();
+const db = app.firestore();
 
 const context = createContext();
 
 
+
 const AuthContext = (props) => {
 
+    const [appUser, setAppUser] = useState(null)
 
+//to stay logged in
 
-    const [appUser, setAppUser] = useState(undefined)
-    // console.log("wat is appuser", appUser)
+    useEffect(() => {
+        //firebase is logged in
+        app.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                console.log("USER?",user)
+                //also make sure user is logged in by updating state
+                setAppUser(user)
+
+            } else {
+                // No user is signed in.
+                console.log("no user")
+            }
+        });
+
+    },[])
 
 
     async function register(email, password) {
@@ -29,8 +46,11 @@ const AuthContext = (props) => {
 
     function logout (){
         app.auth().signOut();
+        setAppUser(null)
 
     }
+
+
 
 
     return (
