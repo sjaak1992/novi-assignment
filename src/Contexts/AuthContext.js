@@ -2,7 +2,6 @@ import React, {createContext, useState, useContext, useEffect} from 'react'
 import app from "../modules/firebase";
 
 const db = app.firestore();
-
 const context = createContext();
 
 
@@ -39,7 +38,7 @@ const AuthContext = (props) => {
 
     async function login(email, password) {
         const response = await app.auth().signInWithEmailAndPassword(email, password)
-        // console.log('authentication', response)
+        console.log('authentication', response.user)
         setAppUser(response.user)
 
     }
@@ -49,9 +48,6 @@ const AuthContext = (props) => {
         setAppUser(null)
 
     }
-
-
-
 
     return (
 

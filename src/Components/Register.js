@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './Register.css'
 import {useAuth} from "../Contexts/AuthContext";
 import {useHistory} from "react-router-dom"
 import app from '../modules/firebase'
+import {Redirect} from 'react-router-dom'
 
 //firebase config
 const db = app.firestore();
@@ -12,14 +13,16 @@ function Register() {
 
     const {appUser, login, register, logout} = useAuth();
     const [userIntent, setUserIntent] = useState('Register')
-    const [error, setError] = useState('')
+    // const [error, setError] = useState('')
 
     const history = useHistory();
 
+    // console.log("wat zit erin?", appUser)
 
     async function onSubmit(event) {
         //prevent reload
         event.preventDefault()
+        console.log("ONSUMBIT?")
 
         //isolate email and password from event
         const [email, password] = event.target
@@ -29,19 +32,27 @@ function Register() {
             register(email.value, password.value);
 
         } else {
+            console.log("HALLO?")
             login(email.value, password.value);
+
         }
     }
 
-
-    async function handleLogout() {
-        try {
-            await logout()
-
-        } catch (error) {
-            setError('Failed to log out')
+    useEffect(() => {
+        console.log("effect?", appUser)
+        if (appUser) {
+            console.log("redirect naar home")
+            history.push("/")
         }
 
+
+    }, [appUser])
+
+
+    function toggleUserIntent(event){
+        event.preventDefault()
+        console.log("TOGGLE?")
+        setUserIntent(userIntent === 'Register' ? 'Login' : 'Register')
     }
 
 
@@ -66,7 +77,7 @@ function Register() {
                     </button>
 
                     <button className='register-form--element'
-                            onClick={() => setUserIntent(userIntent === 'Register' ? 'Login' : 'Register')}>
+                            onClick={toggleUserIntent}>
                         Or
                         {userIntent === 'Register' ? 'Login' : 'Register'}
                     </button>
@@ -78,6 +89,7 @@ function Register() {
 
 
                 }
+
 
             </div>
 

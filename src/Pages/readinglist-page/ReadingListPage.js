@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useReadingList} from "../../Contexts/ReadingListContext";
 import MyReadingList from "../../Components/MyReadingList";
 import {useAuth} from "../../Contexts/AuthContext";
@@ -11,6 +11,7 @@ function ReadingListPage() {
 
     const {readingList, setReadingList} = useReadingList();
     const {appUser} = useAuth();
+    const [error, setError] = useState(false);
 
 
     useEffect(() => {
@@ -23,6 +24,7 @@ function ReadingListPage() {
 
 
             } catch (error) {
+                setError(true)
                 console.error(error)
             }
 
@@ -39,6 +41,8 @@ function ReadingListPage() {
         <>
             <div className="reading-list-container">
                 <h2>MY READING LIST:</h2>
+
+                {error && <p>WOOPS er ging iets mis! Try again :)</p>}
 
                 <ul className="reading-list-item">
                     {readingList.map((readingListItem) => {
