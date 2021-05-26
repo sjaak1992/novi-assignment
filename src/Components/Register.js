@@ -4,7 +4,7 @@ import {useAuth} from "../Contexts/AuthContext";
 import {useHistory} from "react-router-dom"
 import app from '../modules/firebase'
 import {displayUserIntent} from '../Helpers/register'
-import {Redirect} from 'react-router-dom'
+
 
 //firebase config
 const db = app.firestore();
