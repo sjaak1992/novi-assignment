@@ -6,6 +6,10 @@ nav {
     color: var(--color-white);
 }
 
+/*.selected {*/
+/*color: red;*/
+
+/*}*/
 
 .logo {
     position: fixed;

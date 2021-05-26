@@ -18,19 +18,23 @@ function Nav() {
                 <ul className="nav-links">
                     <NavLink
                         to='/'
-                        className="text-link">
+                        className="text-link"
+                        activeClassName="selected"
+                    >
                         <li>home</li>
                     </NavLink>
 
                     <NavLink
                         to='/profile'
-                        className="text-link">
-                        <li>profile</li>
+                        activeClassName="selected"
+                        >
+                        <li className="text-link">profile</li>
                     </NavLink>
 
                     {!appUser &&
                     <NavLink
                         to='/login'
+                        activeClassName="selected"
                         className="text-link">
                         <li>login</li>
                     </NavLink>

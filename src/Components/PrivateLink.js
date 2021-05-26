@@ -9,7 +9,11 @@ function PrivateLink(props) {
     return (
         <>
             {appUser &&
-            <NavLink className={props.className} to={props.to}>
+            <NavLink
+                activeClassName="selected"
+                className={props.className}
+                to={props.to}>
+
                 {props.children}
             </NavLink>
             }

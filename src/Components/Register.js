@@ -3,10 +3,13 @@ import './Register.css'
 import {useAuth} from "../Contexts/AuthContext";
 import {useHistory} from "react-router-dom"
 import app from '../modules/firebase'
+import {displayUserIntent} from '../Helpers/register'
 import {Redirect} from 'react-router-dom'
 
 //firebase config
 const db = app.firestore();
+
+
 
 
 function Register() {
@@ -78,11 +81,14 @@ function Register() {
 
                     <button className='register-form--element'
                             onClick={toggleUserIntent}>
-                        Or
-                        {userIntent === 'Register' ? 'Login' : 'Register'}
+
+
+                        {displayUserIntent(userIntent)}
+
                     </button>
 
                     {appUser && <h1> Welcome {appUser.email}</h1>}
+
 
 
                 </form>
