@@ -1,7 +1,7 @@
 * {
     padding: 0;
     margin: 0;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 :root {
@@ -47,14 +47,7 @@ p {
 }
 
 
-.first-sentence {
-    font-family: var(--font-second);
-    font-style: italic;
-    color: var(--color-white);
-    border: 2px solid var(--color-primary);
-    background-color: var(--color-primary);
-    padding: 1rem;
-}
+
 
 
 button {

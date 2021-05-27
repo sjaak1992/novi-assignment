@@ -18,10 +18,10 @@ function Search(props) {
                     </div>
 
                     <div className="search__box">
-                    <input className='search-input' value={props.value} onChange={props.change}/>
+                    <input className='search__input' value={props.value} onChange={props.change}/>
 
                     <button
-                        className="search-button"
+                        className="search__button"
                         onClick={props.clickHandler}>
                         <FcSearch/>
                     </button>
@@ -30,7 +30,7 @@ function Search(props) {
 
                 </div>
 
-                <div className="author__container">
+                <div>
                     <img src={`http://covers.openlibrary.org/a/olid/${props.authorProfile}-M.jpg`}
                          alt="author-profile"
                          className="author__image"
@@ -39,7 +39,7 @@ function Search(props) {
 
                 <div className="search__container--right">
 
-                    <img className="search-image" src={props.image} alt={props.alternative}/>
+                    <img className="search__image" src={props.image} alt={props.alternative}/>
                 </div>
             </div>
 

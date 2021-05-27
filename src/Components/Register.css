@@ -1,12 +1,4 @@
-
-.register-form-container {
-    padding: 45px;
-    margin: 2rem;
-    background-color: var(--color-white);
-}
-
-
-.register-form{
+.register__form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,7 +9,15 @@
 }
 
 
-.register-form--element{
+.register__form--container {
+    padding: 45px;
+    margin: 2rem;
+    background-color: var(--color-white);
+}
+
+
+
+.register__form--element{
     margin: 0.5rem;
     padding: 0.5rem;
 }

@@ -1,10 +1,29 @@
-.bookdetails__title {
+.bookdetails__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+
+.book-details__info--title {
     font-style: italic;
     padding: 1rem;
 }
 
-.bookdetails--image{
+.bookdetails__info--sentence {
+    font-family: var(--font-second);
+    font-style: italic;
+    color: var(--color-white);
+    border: 2px solid var(--color-primary);
+    background-color: var(--color-primary);
+    padding: 1rem;
+    margin: 1rem;
+}
 
+
+.bookdetails--image {
+    padding: 1rem;
 }
 
 .bookdetails__container {
@@ -15,16 +34,8 @@
     background-color: var(--color-white);
     /*margin-left: 2rem;*/
     margin: 2rem;
-    flex-wrap: wrap ;
+    flex-wrap: wrap;
 }
-
-.bookdetails__info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-
-}
-
 
 
 .bookdetails__container--add {
@@ -37,7 +48,7 @@
 .bookdetails__button--add {
     padding: 20px;
     background-color: transparent;
-    border:transparent;
+    border: transparent;
     cursor: pointer;
     font-size: 4rem;
     color: var(--color-primary);

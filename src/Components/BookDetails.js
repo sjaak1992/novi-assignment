@@ -46,8 +46,8 @@ function BookDetails() {
 
                 <div className="bookdetails__info">
                     <h2>{book.author_name}</h2>
-                    <p className="book-details__title">{book.title}</p>
-                    <p className="first-sentence"> {book.first_sentence} </p>
+                    <p className="book-details__info--title">{book.title}</p>
+                    <p className="bookdetails__info--sentence"> {book.first_sentence} </p>
 
                 </div>
 
