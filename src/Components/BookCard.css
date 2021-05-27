@@ -1,5 +1,11 @@
-.book-card {
+.bookcard__button {
     display: block;
     margin: 1rem;
+    border: transparent;
+    border-radius: 10px;
 
+}
+
+.bookcard--image {
+    padding: 0.5rem;
 }

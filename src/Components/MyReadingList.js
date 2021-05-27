@@ -5,8 +5,6 @@ import './MyReadingList.css'
 
 function MyReadingList(props) {
 
-
-
     return (
         <>
 

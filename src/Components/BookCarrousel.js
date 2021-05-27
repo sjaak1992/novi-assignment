@@ -5,13 +5,14 @@ function BookCarrousel(props) {
 
     return (
 
-        <div className="book-card-container">
+        <div className="bookcarrousel__container">
 
             {props.books && props.books.map((book) => {
                 return (
 
                     <BookCard data={() => props.setBook(book)}
                               id={book.cover_i}
+                              title={book.title}
 
                     />
                 )

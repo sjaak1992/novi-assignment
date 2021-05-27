@@ -6,7 +6,7 @@
 
 .search-input {
     padding: 10px;
-    width: 300px;
+    max-width: 300px;
     height: 30px;
 }
 
@@ -19,37 +19,49 @@
 
 }
 
-.container {
-    width: calc(100vw - 20vw - 2rem); /*100vw maar min de margin left en right*/
-    margin-right: 20vw;
+.search__box {
+    display: flex;
+}
+
+.search__container {
+    /*width: calc(- 2rem); !*100vw maar min de margin left en right*!*/
+    /*margin-right: 20vw;*/
     margin-left: 2rem;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
     padding: 65px;
+    flex-wrap: wrap;
 
 }
 
-.left {
+.search__container--left {
+    transition: 0.5s;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
     /*padding-left: 10vw;*/
-    width: 60vw;
+    max-width: 350px;
     height: 400px;
     background-color: var(--color-white);
 }
 
-.right {
+.search__container--right {
+    transition: 0.5s;
     display: flex;
     position: relative;
     height: 400px;
 }
 
-.author-picture {
-    position: absolute;
-    top: calc(90% - 90px); /*90% positie, -90 px opzij want image is 180px*/
-    left: -90px;
+/*.author-container {*/
+/*    position: absolute;*/
+/*    top: calc(90% - 90px); !*90% positie, -90 px opzij want image is 180px*!*/
+/*    left: -90px;*/
+/*    !*border: 10px solid var(--color-secondary)*!*/
+/*}*/
+
+.author__image{
+    transition: 0.5s;
     border: 10px solid var(--color-secondary)
 }

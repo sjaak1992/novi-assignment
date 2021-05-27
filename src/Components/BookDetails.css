@@ -1,11 +1,13 @@
-.book-details__title {
+.bookdetails__title {
     font-style: italic;
     padding: 1rem;
 }
 
+.bookdetails--image{
 
+}
 
-.book-details-container {
+.bookdetails__container {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -16,23 +18,23 @@
     flex-wrap: wrap ;
 }
 
-.detail-info {
+.bookdetails__info {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: flex-start;
+
 }
 
 
 
-.detail-add {
+.bookdetails__container--add {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
 
-.add-button {
+.bookdetails__button--add {
     padding: 20px;
     background-color: transparent;
     border:transparent;
@@ -42,12 +44,17 @@
 }
 
 
-.add-button:disabled {
+.bookdetails__button--add:disabled {
     background-color: transparent;
     color: #d0dbd3;
 }
 
-.login-message {
-    color: #D9925D;
-    font-size: 1.5rem;
+.bookdetails__message--login {
+    color: var(--color-accent);
+
+}
+
+.bookdetails__message--added {
+    color: var(--color-accent);
+
 }

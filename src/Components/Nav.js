@@ -12,13 +12,13 @@ function Nav() {
 
     return (
         <>
-            <div className="logo"> BOOKCLUB</div>
-            <nav>
+            <div className="nav__logo"> BOOKCLUB</div>
+            <nav className="nav__bar">
 
                 <ul className="nav-links">
                     <NavLink
                         to='/'
-                        className="text-link"
+                        className="nav__link--text"
                         activeClassName="selected"
                     >
                         <li>home</li>
@@ -28,14 +28,14 @@ function Nav() {
                         to='/profile'
                         activeClassName="selected"
                         >
-                        <li className="text-link">profile</li>
+                        <li className="nav__link--text">profile</li>
                     </NavLink>
 
                     {!appUser &&
                     <NavLink
                         to='/login'
                         activeClassName="selected"
-                        className="text-link">
+                        className="nav__link--text">
                         <li>login</li>
                     </NavLink>
                     }
@@ -43,7 +43,7 @@ function Nav() {
 
                     <PrivateLink
                         to='/reading-list'
-                        className="text-link">
+                        className="nav__link--text">
                         <li>books</li>
                     </PrivateLink>
 
@@ -53,7 +53,7 @@ function Nav() {
                     >
                         <li>
                             <button
-                                className="nav-exit-icon"
+                                className="nav__icon--exit"
                                 onClick={logout}><BiExit/></button>
                         </li>
                     </PrivateLink>

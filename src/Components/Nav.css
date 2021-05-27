@@ -1,4 +1,4 @@
-nav {
+.nav__bar {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -11,7 +11,7 @@ nav {
 
 /*}*/
 
-.logo {
+.nav__logo {
     position: fixed;
     left: 2rem;
     top: 2rem;
@@ -25,11 +25,11 @@ nav {
 
 }
 
-.text-link li {
+.nav__link--text li {
     padding: 0.2rem;
 }
 
-.nav-exit-icon {
+.nav__icon--exit {
     background-color: transparent;
     border: transparent;
     color: var(--color-white);
@@ -37,7 +37,7 @@ nav {
     cursor: pointer;
 }
 
-.text-link {
+.nav__link--text {
     text-decoration: none;
     letter-spacing: 0.3rem;
     text-transform: lowercase;

@@ -1,11 +1,13 @@
 * {
     padding: 0;
     margin: 0;
+    border: 1px solid red;
 }
 
 :root {
     --color-primary: #5e7374;
     --color-secondary:#d9dede;
+    --color-accent: #D9925D;
     --color-white: white;
     --font-logo: helvetica;
     --font-main: 'Roboto', sans-serif, monospace;

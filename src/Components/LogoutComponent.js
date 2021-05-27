@@ -11,7 +11,6 @@ function LogoutComponent() {
             <div>
                 {!appUser && <h2>You are now logged out.</h2>}
 
-                {/*{!appUser && <Register/>}*/}
 
                 <Register/>
 

@@ -1,10 +1,10 @@
-.reading-list-container {
+.readinglist__container {
     padding: 45px;
     margin: 2rem;
     background-color: var(--color-white);
 }
 
-h2{
+.readinglist__title {
     margin-bottom: 1rem;
 }
 
@@ -12,10 +12,9 @@ ul {
     list-style: none;
     color: var(--color-primary);
 
-
 }
 
-.reading-list-item li:before {
+.readinglist--item li:before {
     content: "\2665";
     color: #D9925D ;
     padding: 5px;
