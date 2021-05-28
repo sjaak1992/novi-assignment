@@ -14,7 +14,6 @@ function SearchPage() {
 
     const [query, setQuery] = useState('')
     const [inputText, setInputText] = useState('dahl')
-    const [author, setAuthor] = useState([])
     const [books, setBooks] = useState([]);
     const [authorProfile, setAuthorProfile] = useState([])
     const [loading, setLoading] = useState(true)
@@ -27,7 +26,6 @@ function SearchPage() {
 
 
         if (response.data.docs.length > 0) {
-            setAuthor(response.data.docs[0].author_name[0])
             setBooks(response.data.docs)
             setAuthorProfile(response.data.docs[0].author_key[0])
         }

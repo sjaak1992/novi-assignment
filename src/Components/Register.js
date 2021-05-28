@@ -17,11 +17,9 @@ function Register() {
 
 
     async function onSubmit(event) {
-        //prevent reload
         event.preventDefault()
 
 
-        //isolate email and password from event
         const [email, password] = event.target
 
 
@@ -29,26 +27,22 @@ function Register() {
             register(email.value, password.value);
 
         } else {
-            console.log("HALLO?")
             login(email.value, password.value);
 
         }
     }
 
     useEffect(() => {
-        console.log("effect?", appUser)
         if (appUser) {
-            console.log("redirect naar home")
             history.push("/")
         }
 
 
-    }, [appUser])
+    }, [appUser, history])
 
 
     function toggleUserIntent(event){
         event.preventDefault()
-        console.log("TOGGLE?")
         setUserIntent(userIntent === 'Register' ? 'Login' : 'Register')
     }
 
@@ -60,7 +54,7 @@ function Register() {
                 {!appUser &&
 
                 <form
-                    onSubmit={onSubmit} // als er geen appuser wordt gevonden, laat formulier zien en anders h1 met welcome
+                    onSubmit={onSubmit}
                     className="register__form">
                     <h2> {userIntent} </h2>
 

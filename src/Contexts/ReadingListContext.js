@@ -1,5 +1,4 @@
 import React, {createContext, useState, useContext, useEffect} from 'react'
-import NotificationBadge from 'react-notification-badge';
 import {useAuth} from "./AuthContext";
 import app from "../modules/firebase";
 
@@ -21,7 +20,6 @@ const ReadingListContext = (props) => {
         async function fetchUserData() {
             try {
                 const response = await db.collection('users').doc(appUser.uid).collection("readinglist").get();
-                // console.log(response.docs.map(doc => doc.data())) // readinglist die je terug krijgt
                 setReadingList(response.docs.map(doc => doc.data()))
 
 
@@ -31,15 +29,19 @@ const ReadingListContext = (props) => {
             }
 
         }
-//UserData wordt alleen aangeroepen wanneer er een appUser is ingelogd
+
+
         if(appUser){
             fetchUserData();
+        } else {
+            setReadingList([])
+            setBook({})
         }
 
 
 
     }, [appUser])
-    // console.log(readingList)
+
 
 
     return(

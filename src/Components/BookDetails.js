@@ -30,7 +30,7 @@ function BookDetails() {
         setReadingList([...readingList, readingListItem])
     }
 
-    console.log("wat is dit", book.author_name)
+
 
 
     return (

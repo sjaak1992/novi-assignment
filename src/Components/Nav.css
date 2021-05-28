@@ -21,8 +21,8 @@
     color: var(--color-primary);
     background-color: var(--color-white);
     padding: 1rem;
-
 }
+
 
 .nav__link--text li {
     padding: 0.2rem;
@@ -46,5 +46,12 @@
 
 .selected {
     color: var(--color-accent) !important;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .nav__logo {
+        font-size: 1rem;
+    }
 
 }

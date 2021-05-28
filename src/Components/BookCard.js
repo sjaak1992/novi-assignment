@@ -7,7 +7,6 @@ function BookCard(props) {
 
     const {readingList} = useReadingList();
     const alreadyAdded = isAlreadyAdded(props.title, readingList)
-    console.log(alreadyAdded, props.title)
 
     return (
 

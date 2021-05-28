@@ -7,7 +7,6 @@ import MyReadingList from "../../Components/MyReadingList";
 function ReadingListPage() {
 
     const {readingList, error} = useReadingList();
-    console.log(readingList)
 
     return (
         <>
@@ -20,7 +19,9 @@ function ReadingListPage() {
                     {readingList.map((readingListItem) => {
                         return (
 
-                            <MyReadingList item={readingListItem}/>
+                            <MyReadingList
+                                key={readingListItem.key}
+                                item={readingListItem}/>
 
                         )
                     })}
