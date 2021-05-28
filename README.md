@@ -16,11 +16,25 @@
 
 In deze READ.me is een beschrijving terug te vinden voor de webapplicatie “BOOKCLUB”. Het doel van deze website is om bij te dragen aan de modernisatie van de huidige boekenwereld. Het creëren van een online landschap voor boekliefhebbers en/of voor de toekomstige boekliefhebber. Met tevens als missie, verschillende doelgroepen aan te spreken, zowel jong als oud. De webapplicatie heeft daarom een modern en hedendaags design zodat het kan meegroeien met de tijd en makkelijk is in gebruik. Hierdoor is de applicatie voor iedereen toegankelijk. Heeft men een favoriete schrijver? Dan kan de gebruiker meer inspiratie opdoen en middels de auteursnaam andere titels opvragen. Daarna kunnen deze titels worden opgeslagen in een persoonlijke boekenlijst, die via een webbrowser overal toegankelijk is.
 
-
-
 Het project is opgezet met Create React App.
 
-![schermafbeelding](../../assets/scherm1.jpg)
+
+**Home:**
+
+![schermafbeelding](./src/assets/scherm1.jpg)
+![schermafbeelding](./src/assets/scherm2.jpg)
+
+
+**Register:**
+
+![schermafbeelding](./src/assets/scherm3.jpg)
+
+**Boekenlijst:**
+
+![schermafbeelding](./src/assets/scherm4.jpg)
+
+
+
 
 ##<FONT COLOR="#5e7374">  BENODIGDHEDEN </FONT>
 * Node.js
