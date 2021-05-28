@@ -22,7 +22,8 @@ Het project is opgezet met Create React App.
 **Home:**
 
 ![schermafbeelding](./src/assets/scherm1.jpg)
-![schermafbeelding](./src/assets/scherm2.jpg)
+
+![schermafbeelding](src/assets/scherm1_1.jpg)
 
 
 **Register:**
