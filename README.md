@@ -20,6 +20,8 @@ In deze READ.me is een beschrijving terug te vinden voor de webapplicatie “BOO
 
 Het project is opgezet met Create React App.
 
+![schermafbeelding](../../assets/scherm1.jpg)
+
 ##<FONT COLOR="#5e7374">  BENODIGDHEDEN </FONT>
 * Node.js
 * NPM

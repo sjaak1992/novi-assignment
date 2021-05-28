@@ -1,7 +1,7 @@
 import React from "react";
 import './Search.css'
 import {FcSearch} from 'react-icons/fc'
-import { Grid } from 'react-spinners-css';
+
 
 
 function Search(props) {
