@@ -4,7 +4,7 @@ import {BiBookmarkPlus} from 'react-icons/bi'
 import {useReadingList} from "../Contexts/ReadingListContext"
 import app from "../modules/firebase";
 import {useAuth} from "../Contexts/AuthContext";
-import {isAlreadyAdded} from "../Helpers/readinglist";
+import {isAlreadyAdded} from "../helpers/readinglist";
 
 const db = app.firestore();
 
@@ -36,7 +36,7 @@ function BookDetails() {
     return (
 
         <>
-            <div className="bookdetails__container">
+            <section className="bookdetails__container">
                 <img
                     src={`http://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
                     alt="book-cover"
@@ -69,7 +69,7 @@ function BookDetails() {
 
 
                 </div>
-            </div>
+            </section>
 
         </>
 

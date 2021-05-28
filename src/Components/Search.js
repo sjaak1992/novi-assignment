@@ -1,6 +1,7 @@
 import React from "react";
 import './Search.css'
 import {FcSearch} from 'react-icons/fc'
+import { Grid } from 'react-spinners-css';
 
 
 function Search(props) {
@@ -22,7 +23,9 @@ function Search(props) {
 
                     <button
                         className="search__button"
-                        onClick={props.clickHandler}>
+                        onClick={props.clickHandler}
+                        disabled={props.loading}
+                    >
                         <FcSearch/>
                     </button>
 
@@ -31,10 +34,10 @@ function Search(props) {
                 </div>
 
                 <div className="search__container--author">
-                    <img src={`http://covers.openlibrary.org/a/olid/${props.authorProfile}-M.jpg`}
-                         alt="author-profile"
-                         className="author__image"
-                    />
+                        <img src={`http://covers.openlibrary.org/a/olid/${props.authorProfile}-M.jpg`}
+                             alt="author-profile"
+                             className="author__image"
+                        />
                 </div>
 
                 <div className="search__container--right">

@@ -1,6 +1,6 @@
 import React from 'react'
 import './BookCard.css';
-import {isAlreadyAdded} from "../Helpers/readinglist";
+import {isAlreadyAdded} from "../helpers/readinglist";
 import {useReadingList} from "../Contexts/ReadingListContext";
 
 function BookCard(props) {

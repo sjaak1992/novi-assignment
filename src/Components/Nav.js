@@ -54,7 +54,6 @@ function Nav() {
 
                 </ul>
 
-
             </nav>
         </>
     );

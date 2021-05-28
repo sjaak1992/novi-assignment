@@ -50,15 +50,16 @@ function SearchPage() {
                     image={search_image_best}
                     alternative="search-image"
                     authorProfile={authorProfile}
+                    loading={loading}
             />
 
-            {loading && <Grid color="#5e7374" size={200}/>}
+            {loading ? <Grid className="searchpage__spinner" color="#D9925D" size={200}/> :
 
-            <BookCarrousel
-                books={books}
-                setBook={setBook}
-            />
-
+                <BookCarrousel
+                    books={books}
+                    setBook={setBook}
+                />
+            }
 
             <BookDetails/>
 

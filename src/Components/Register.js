@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import './Register.css'
 import {useAuth} from "../Contexts/AuthContext";
 import {useHistory} from "react-router-dom"
-import {displayUserIntent} from '../Helpers/register'
+import {displayUserIntent} from '../helpers/register'
 
 
 // //firebase config
@@ -60,7 +60,6 @@ function Register() {
 
                     {appUser && <h2> {appUser.email} </h2>}
 
-                    {/*<input className="register-form--element" type="text" placeholder="firstname"/>*/}
                     <input className='register__form--element' type="email" placeholder="email"/>
                     <input className='register__form--element' type="password" placeholder="password"/>
 
