@@ -2,14 +2,13 @@ import firebase from "firebase";
 
 const app = firebase.initializeApp({
 
-    apiKey: "AIzaSyAPsM8nfreBH9HLZEnUFnVOrYEcAQvGQXM", //apiKey:process.env.apikey,
-    authDomain: "the-bookclub-6d200.firebaseapp.com",
-    projectId: "the-bookclub-6d200",
-    storageBucket: "the-bookclub-6d200.appspot.com",
-    messagingSenderId: "517824992374",
-    appId: "1:517824992374:web:ab127cb573e342a68f3b57",
-    measurementId: "G-E9FEW7049H"
-    //https://firestore.googleapis.com/v1/projects/the-bookclub-6d200/databases/(default)/documents/readinglist // to see it in json format
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID,
+    measurementId: process.env.REACT_APP_MEASUREMENT_ID
 
 })
 
