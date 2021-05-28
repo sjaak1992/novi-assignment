@@ -1,11 +1,12 @@
 import React, {useState, useEffect, useCallback} from 'react'
 import Search from "../../Components/Search";
-import search_image from "../../assets/search_image.jpg";
+import search_image_best from "../../assets/search_image_best.jpeg"
 import BookCarrousel from "../../Components/BookCarrousel";
 import BookDetails from "../../Components/BookDetails";
 import {useReadingList} from "../../Contexts/ReadingListContext";
 import { Grid } from 'react-spinners-css';
 import axios from "axios";
+import './SearchPage.css'
 
 
 
@@ -23,7 +24,7 @@ function SearchPage() {
     const fetchData = useCallback(async function fetchData() {
         setLoading(true)
         const response = await axios.get(`http://openlibrary.org/search.json?author=${query}`)
-        // console.log(response)
+
 
         if (response.data.docs.length > 0) {
             setAuthor(response.data.docs[0].author_name[0])
@@ -48,7 +49,7 @@ function SearchPage() {
             <Search clickHandler={() => setQuery(inputText)}
                     value={inputText}
                     change={e => setInputText(e.target.value)}
-                    image={search_image}
+                    image={search_image_best}
                     alternative="search-image"
                     authorProfile={authorProfile}
             />

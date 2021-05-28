@@ -22,6 +22,9 @@
     background-color: var(--color-white);
 }
 
+.search__container--title h2 {
+    padding: 0.5rem;
+}
 .search__box {
     display: flex;
 }
@@ -40,10 +43,12 @@
 
 }
 
+.search__container--author {
+    padding: 1rem;
+}
 
 
-
-.author__image{
+.author__image {
     transition: 0.5s;
     border: 10px solid var(--color-secondary)
 }
@@ -60,4 +65,5 @@
 .search__image {
     height: 400px;
     width: 500px;
+    padding: 1rem;
 }

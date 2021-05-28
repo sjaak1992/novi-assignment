@@ -1,0 +1,13 @@
+.logout__container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    margin-top:100px;
+    border: 5px solid var(--color-accent);
+    border-radius: 100px;
+    background-color: var(--color-white);
+}
+
+.logout--message{
+    color: var(--color-accent)
+}

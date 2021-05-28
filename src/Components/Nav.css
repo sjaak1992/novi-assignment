@@ -1,20 +1,19 @@
 .nav__bar {
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
-    min-height: 7rem;
+    align-items: center;
+    min-height: 5rem;
     color: var(--color-white);
 }
 
-/*.selected {*/
-/*color: red;*/
-
-/*}*/
+.nav__link--item {
+    margin: 0.2rem;
+}
 
 .nav__logo {
     position: fixed;
     left: 2rem;
-    top: 2rem;
+    top: 1rem;
     font-family: var(--font-main);
     font-size: 2rem;
     text-transform: uppercase;
@@ -27,6 +26,7 @@
 
 .nav__link--text li {
     padding: 0.2rem;
+    font-size: 1.3rem;
 }
 
 .nav__icon--exit {
@@ -41,7 +41,10 @@
     text-decoration: none;
     letter-spacing: 0.3rem;
     text-transform: lowercase;
-    color:var(--color-white);
+    color: var(--color-white);
 }
 
+.selected {
+    color: var(--color-accent) !important;
 
+}

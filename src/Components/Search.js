@@ -12,7 +12,7 @@ function Search(props) {
 
                 <div className="search__container--left">
 
-                    <div>
+                    <div className="search__container--title">
                     <h2>Find Books</h2>
                     <h2>By My Favorite Author.</h2>
                     </div>
@@ -30,7 +30,7 @@ function Search(props) {
 
                 </div>
 
-                <div>
+                <div className="search__container--author">
                     <img src={`http://covers.openlibrary.org/a/olid/${props.authorProfile}-M.jpg`}
                          alt="author-profile"
                          className="author__image"

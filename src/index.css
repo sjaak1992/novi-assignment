@@ -1,7 +1,7 @@
 * {
     padding: 0;
     margin: 0;
-    /*border: 1px solid red;*/
+    border: 1px solid red;
 }
 
 :root {
@@ -44,9 +44,9 @@ h3, input {
 p {
     font-family: var(--font-second);
     color:var(--color-primary);
+    letter-spacing: 0.1rem;
+
 }
-
-
 
 
 
@@ -59,8 +59,13 @@ button {
 
 }
 
+/* Mobile defaults*/
 
-
+/*@media only screen and (max-width: 600px) {*/
+/*    body {*/
+/*        background-color: lightblue;*/
+/*    }*/
+/*}*/
 
 
 

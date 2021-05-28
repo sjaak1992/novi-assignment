@@ -1,6 +1,8 @@
 import React from 'react'
 import Register from "./Register";
 import {useAuth} from "../Contexts/AuthContext";
+import './LogoutComponent.css'
+
 
 
 function LogoutComponent() {
@@ -8,9 +10,12 @@ function LogoutComponent() {
 
     return (
         <>
-            <div>
-                {!appUser && <h2>You are now logged out.</h2>}
+            <div >
 
+                <div className="logout__container">
+                {!appUser &&
+                    <h2 className="logout--message">successfully logged out, come back soon?</h2>}
+                </div>
 
                 <Register/>
 
