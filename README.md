@@ -19,6 +19,12 @@ In deze READ.me is een beschrijving terug te vinden voor de webapplicatie “BOO
 Het project is opgezet met Create React App.
 
 
+**User Stories e.g.:**
+* As a user I want to see a list of books, so I can be inspired to read more
+* As a visually orientated reader I want to see the covers so I can be inspired
+* As a user, when I add a book to my reading list, it is saved, so I can use my reading list anywhere
+* As a user I want to be able to search by entering a name of an author, so I can find other books written by authors I like
+
 **Home:**
 
 ![schermafbeelding](./src/assets/scherm1.jpg)
@@ -37,13 +43,13 @@ Het project is opgezet met Create React App.
 
 
 
-##<FONT COLOR="#5e7374">  BENODIGDHEDEN </FONT>
+## <FONT COLOR="#5e7374"> BENODIGDHEDEN </FONT>
 * Node.js
 * NPM
 * Git
 * Firebase/ Google account
 
-##<FONT COLOR="#5e7374"> APPLICATIE STARTEN </FONT>
+## <FONT COLOR="#5e7374"> APPLICATIE STARTEN </FONT>
 * clone Git repository naar jouw locale machine
 * `npm install`
 * maak een .env bestand aan
@@ -71,7 +77,7 @@ Het project is opgezet met Create React App.
 <FONT COLOR="D9925D">"**note**: voor de nakijker van Novi Hogeschool is Firebase al klaargezet. De firebase credentials zijn apart meegestuurd en hoeven enkel worden toegevoegd aan een .env bestand **</FONT>
 
 
-###<FONT COLOR="#5e7374"> TESTEN </FONT>
+### <FONT COLOR="#5e7374"> TESTEN </FONT>
 In de map helpers zijn de unit testen terug te vinden. Deze kunnen worden gerund met de commando `npm test`
 
 
